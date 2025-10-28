@@ -1,5 +1,7 @@
 import { Product } from "@/types";
 import { fetchProductsByCategory } from "../services/products";
+import styles from "./[id].module.css";
+import Card from "../components/Card/Card";
 
 export const dynamicParams = false;
 
@@ -8,18 +10,21 @@ export async function generateStaticParams() {
   return ids.map((id) => ({ id }));
 }
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = await params;
   const products: Product[] = await fetchProductsByCategory(id);
 
   return (
     <div>
-      <h1>Products in category: {id}</h1>
-      <ul>
+      <div className={styles.grid}>
         {products.map((p) => (
-          <li key={p.id}>{p.title}</li>
+          <Card key={p.id} {...p} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
