@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <Link href="/">
-        <Image alt="logo" src="/logo.png" width={100} height={50} />
+        <Image alt="logo" src="/logo3.jpg" width={100} height={50} />
       </Link>
       <nav>
         <ul className={styles["nav-list"]}>
@@ -30,7 +30,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <Link href="/cart">Cart</Link>
+      <Link className={styles.cart} href="/cart">Cart</Link>
     </header>
   );
 };
