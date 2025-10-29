@@ -8,7 +8,10 @@ const Card: React.FC<Product> = ({ title, price, image, category }) => {
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.category}>{category}</p>
       <p className={styles.price}>${price}</p>
-      <button className={styles.button}>Add to Cart</button>
+      <button className={styles.button}>
+        <span className={styles["cart-icon"]}>🛒</span>
+        ADD TO CART
+      </button>
     </div>
   );
 };
