@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import Image from "next/image";
+import { getTotalItems } from "@/app/store/functions";
 
 const Header = () => {
+  const totalItems = getTotalItems();
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -30,7 +33,9 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <Link className={styles.cart} href="/cart">Cart</Link>
+      <Link className={styles.cart} href="/cart">
+        Cart ({totalItems})
+      </Link>
     </header>
   );
 };
